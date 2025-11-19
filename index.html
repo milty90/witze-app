@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>witze-app</title>
+    <link rel="stylesheet" href="/src/styles.scss" />
+  </head>
+  <body>
+    <div class="joke-app">
+      <h1 class="joke-app__header">
+        Witze App
+      </h1>
+      <div class="joke-app__container">
+  <button class="joke-app__button">
+    <div class=" joke-app__button-top">
+      <img class="joke-app__button-icon" src="public/famous-favorite.svg" alt="Favorite">
+    </div>
+    <div class="joke-app__button-bottom"></div>
+    <div class="joke-app__button-base"></div>
+  </button>
+<div class="joke-app__card">
+  <p> Warum können Geister so schlecht lügen?  Weil man durch sie hindurchsieht! </p>
+</div>
+<button class="joke-app__button">
+    <div class="joke-app__button-top">
+      <img class="joke-app__button-icon" src="public/arrow-right.svg" alt="New Joke">
+    </div>
+    <div class="joke-app__button-bottom"></div>
+    <div class="joke-app__button-base"></div>
+  </button>
+</div>
+<div class="joke-app__favorites">
+  <h2 class="joke-app__fav-header">Gespeicherte Witze</h2>
+  <ul class="joke-app__list">
+    <!-- Gespeicherte Witze werden hier angezeigt -->
+     <div class="joke-app__favorite">
+  <p> Warum können Geister so schlecht lügen?  Weil man durch sie hindurchsieht!</p>
+  <img class="joke-app__button-icon" src="public/disable-favorite.svg" alt="Disable Favorite">
+</div>
+<div class="joke-app__favorite">
+  <p> Warum können Geister so schlecht lügen?  Weil man durch sie hindurchsieht!</p>
+  <img class="joke-app__button-icon" src="public/disable-favorite.svg" alt="Disable Favorite">
+</div>
+</ul>
+
+</div>
+</div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
