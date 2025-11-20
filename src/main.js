@@ -10,16 +10,16 @@ initJokes();
 
 jokeButton.addEventListener('click', async () => {  
     const joke = await fetchJoke();
-    jokeDisplay.textContent = joke;      
+    jokeDisplay.textContent = joke;    
+    initJokes();  
 });
 
 favoriteButton.addEventListener('click', () => {
-    initJokes();
     const currentJoke = {jokeId: new Date().getTime(), jokeText: jokeDisplay.textContent};
     favoriteJokes.push(currentJoke);
     saveJokes(favoriteJokes);
     console.log("Witz gespeichert: " + currentJoke);
-   
+    initJokes();
 
 });
 
