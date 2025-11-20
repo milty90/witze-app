@@ -1,6 +1,7 @@
 import { fetchJoke, saveJokeToLocalStorage, getJokeFromLocalStorage  } from './jokeAPI.js';      
 let favoriteJokes = [];
 
+
 const jokeButton = document.getElementById('jokeButton');
 const jokeDisplay = document.getElementById('jokeDisplay');
 const favoriteButton = document.getElementById('favoriteButton');
@@ -50,11 +51,14 @@ function showFavoriteJokes() {
     favoriteJokesList.innerHTML = '';
     favoriteJokes.forEach(joke => {
         const listItem = document.createElement('li');
+        const disableFavorite = document.createElement('img');
         listItem.className = 'joke-app__favorite';
         listItem.textContent = joke.jokeText;
-        listItem.innerHTML += `
-        <img class="joke-app__button-icon" src="$disable-favorite" alt="Disable Favorite">`;
-        listItem.querySelector('img').addEventListener('click', () => {
+        disableFavorite.src = '/disable-favorite.svg';
+        disableFavorite.alt = 'Disable Favorite';
+        disableFavorite.className = 'joke-app__button-icon';
+        listItem.appendChild(disableFavorite);
+        disableFavorite.addEventListener('click', () => {
             removeFavoriteJoke(joke.jokeId);
         });
         favoriteJokesList.appendChild(listItem);
