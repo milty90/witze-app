@@ -54,9 +54,9 @@ function showFavoriteJokes() {
         const disableFavorite = document.createElement('img');
         listItem.className = 'joke-app__favorite';
         listItem.textContent = joke.jokeText;
+        disableFavorite.className = 'joke-app__disable-icon';
         disableFavorite.src = '/disable-favorite.svg';
         disableFavorite.alt = 'Disable Favorite';
-        disableFavorite.className = 'joke-app__button-icon';
         listItem.appendChild(disableFavorite);
         disableFavorite.addEventListener('click', () => {
             removeFavoriteJoke(joke.jokeId);

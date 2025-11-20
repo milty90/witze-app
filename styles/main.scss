@@ -120,7 +120,19 @@ body, html {
   width: 20px;
   height: 20px;
 }
+
+&__disable-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s, filter 0.3s;
+}
   
+&__disable-icon:hover {
+  cursor: pointer;
+  filter: $disable-fav-color;
+  transform: scale(1.5);
+}
+
 
 &__button:active .joke-app__button-top {
   border-radius: 8px 8px 8px 8px / 8px;
@@ -231,8 +243,12 @@ body, html {
       gap: $spacing-base;
       flex-basis: 100%;
 }
+&__button-icon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  color: $primary-color;
 }
 }
-
+}
 
 

@@ -8,7 +8,7 @@ $font-primary: 'Fredoka', sans-serif;
 $font-heading: 'Luckiest Guy', cursive;
 $spacing-small: 1rem;
 $spacing-base: 2rem;
-$disable-favorite: url('public/disable-favorite.svg');
+$disable-fav-color: brightness(0) saturate(100%) invert(27%) sepia(98%) saturate(3066%) hue-rotate(259deg) brightness(89%) contrast(107%);
 
 @mixin flex-center {
   display: flex;
