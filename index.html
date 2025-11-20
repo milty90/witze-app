@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>witze-app</title>
-    <link rel="stylesheet" href="/src/styles.scss" />
+    <link rel="stylesheet" href="/styles/main.scss" />
   </head>
   <body>
     <div class="joke-app">
@@ -13,17 +13,17 @@
         Witze App
       </h1>
       <div class="joke-app__container">
-  <button class="joke-app__button">
+  <button id="favoriteButton" class="joke-app__button">
     <div class=" joke-app__button-top">
       <img class="joke-app__button-icon" src="public/famous-favorite.svg" alt="Favorite">
     </div>
     <div class="joke-app__button-bottom"></div>
     <div class="joke-app__button-base"></div>
   </button>
-<div class="joke-app__card">
-  <p> Warum können Geister so schlecht lügen?  Weil man durch sie hindurchsieht! </p>
+<div  class="joke-app__card">
+  <p id="jokeDisplay">Bei welcher Stadt winken alle Schwaben ab, wenn sie im Reisebüro vorgeschlagen wird? Antwort: HANOI In welche Stadt würde eine Vollblutfeministin niemals ziehen? Antwort: MANNHEIM Welche Stadt ist die Lieblingsstadt aller Friedhofsgärtner? Antwort: Karlsruh' Welche Stadt ist die Hauptstadt aller Trunkenbolde und Suffköppe? Antwort: LIVERPOOL In welcher Stadt würde sich ein Klimaaktivist niemals auf die Straße kleben? Antwort: REGENSBURG In welche Stadt begeben sich hysterische Frauen? Antwort: FLENSBURG</p>
 </div>
-<button class="joke-app__button">
+<button id="jokeButton" class="joke-app__button">
     <div class="joke-app__button-top">
       <img class="joke-app__button-icon" src="public/arrow-right.svg" alt="New Joke">
     </div>
