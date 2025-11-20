@@ -207,6 +207,7 @@ body, html {
 &__favorite {
     @include flex-center;
     flex-direction: row;
+    justify-content: space-between;
     background: linear-gradient(to bottom, lighten($background-color, 10%), $background-color);
     font-size: $spacing-small;
     border-radius: 25px;
@@ -217,7 +218,7 @@ body, html {
     rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     min-height: 80px;
     height: fit-content;
-    width: 300px;
+    width: 250px;
     max-width: 100%;
     gap: $spacing-small;
     order: 1;
@@ -226,7 +227,7 @@ body, html {
       font-size: 1rem;
       padding: 20px 40px;
       height: 50px;
-      width: 400px;
+      width: 450px;
       gap: $spacing-base;
       flex-basis: 100%;
 }

@@ -51,9 +51,9 @@ function showFavoriteJokes() {
     favoriteJokes.forEach(joke => {
         const listItem = document.createElement('li');
         listItem.className = 'joke-app__favorite';
-        listItem.innerHTML = `<p>${joke.jokeText}</p>
-        <img class="joke-app__button-icon" src="public/disable-favorite.svg" 
-        alt="Disable Favorite">`;
+        listItem.textContent = joke.jokeText;
+        listItem.innerHTML += `
+        <img class="joke-app__button-icon" src="$disable-favorite" alt="Disable Favorite">`;
         listItem.querySelector('img').addEventListener('click', () => {
             removeFavoriteJoke(joke.jokeId);
         });
