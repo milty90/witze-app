@@ -191,7 +191,6 @@ body, html {
     @include table-and-desktop() {
       gap: $spacing-base;
     }
-
 }
 
 &__list {
@@ -203,7 +202,6 @@ body, html {
     @include table-and-desktop() {
       max-width: 600px;
     }
-   
 }
 
 &__favorite {
@@ -217,7 +215,8 @@ body, html {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
     rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    height: 80px;
+    min-height: 80px;
+    height: fit-content;
     width: 300px;
     max-width: 100%;
     gap: $spacing-small;
