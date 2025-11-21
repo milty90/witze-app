@@ -94,7 +94,7 @@ body, html {
     &:last-child {
       order: 3;
     }
-}
+  }
 }
 
 &__button-top {
@@ -173,6 +173,28 @@ body, html {
 
 &__button:active .joke-app__button-base {
   border-radius: 10px 10px 8px 8px / 8px;
+}
+
+&__button-icon-settings{
+  height: 30px;
+  width: 30px;
+  top: 20px;
+  right: 20px;
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.3s;
+
+  @include table-and-desktop() {
+    height: 45px;
+    width: 45px;
+    top: 40px;
+    right: 40px;
+  }
+}
+
+&__button-icon-settings:hover {
+  transform: rotate(90deg);
+  color: $primary-color;
 }
 
 &__fav-header {
@@ -260,6 +282,142 @@ body, html {
 }
 }
 
+&__modal {
+  
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  
+  }
+
+&__modal_content {
+    @include flex-center;
+    flex-direction: column;
+    background: linear-gradient(to bottom, lighten($background-color, 0%), $background-color);
+    font-size: 1.4rem;
+    border-radius: 25px;
+    padding: 20px 40px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    height: fit-content;
+    width: 350px;
+    max-width:100%;
+  }
+
+  &__modal_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+  width: 85%;
+  color: $background-color;
+  text-shadow: -2px -2px 0 $text-shadow-color,
+    2px -2px 0 $text-shadow-color, -2px 2px 0 $text-shadow-color,
+    2px 2px 0 $text-shadow-color, -2px 0 0 $text-shadow-color,
+    2px 0 0 $text-shadow-color, 0 -2px 0 $text-shadow-color,
+    0 2px 0 $text-shadow-color; 
+  border-bottom: 1px solid #eee;
 }
+&__modal_header h2 {
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+&__modal_header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+&__modal-close {
+  font-size: 35px;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  color: lighten($primary-color, 10%);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+&__modal-close:hover {
+  color: darken($primary-color, 5%);
+  transform: scale(1.2);
+}
+
+&__modal_body {
+  width: 85%;
+  padding: 1rem 1.2rem;
+}
+
+&__setting-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+&__setting-label {
+    font-size: 1.2rem;
+    color: $text-color;
+  }
+
+&__switch {
+  padding-top: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type=checkbox] {
+ appearance: none;
+ height: 1.5rem;
+ width: 2.8rem;
+ background-color: lighten($text-color, 30%);
+ position: relative;
+ border-radius: 0.2em;
+ cursor: pointer;
+}
+
+input[type=checkbox]::before {
+ content: '';
+ display: block;
+ height: 1.2rem;
+ width: 1.2rem;
+ transform: translate(-50%, -50%);
+ position: absolute;
+ top: 50%;
+ left: calc(1.2rem/2 + .2rem);
+ background-color: lighten($primary-color, 15%);
+ border-radius: 0.2em;
+ transition: .3s ease;
+}
+
+input[type=checkbox]:checked::before {
+ background-color: $background-color;
+ left: calc(100% - (1.2rem/2 + .2rem));
+}
+
+
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+}
+
 
 
