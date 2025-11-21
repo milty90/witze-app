@@ -7,22 +7,13 @@ const jokeDisplay = document.getElementById('jokeDisplay');
 const favoriteButton = document.getElementById('favoriteButton');
 const favoriteJokesList = document.getElementById('favoriteJokesList');
 
+nextJoke();
 initJokes();
 
-jokeButton.addEventListener('click', async () => {  
+async function nextJoke() {
     const joke = await fetchJoke();
-    jokeDisplay.textContent = joke;    
-    initJokes();  
-});
-
-favoriteButton.addEventListener('click', () => {
-    const currentJoke = {jokeId: new Date().getTime(), jokeText: jokeDisplay.textContent};
-    favoriteJokes.push(currentJoke);
-    saveJokes(favoriteJokes);
-    console.log("Witz gespeichert: " + currentJoke);
-    initJokes();
-
-});
+    jokeDisplay.textContent = joke;  
+}
 
 function initJokes() {
     loadJokes();
@@ -33,6 +24,7 @@ function initJokes() {
 function saveJokes(arrayJokes) {
     saveJokeToLocalStorage(JSON.stringify(arrayJokes));
 }
+     
 
 function loadJokes() {
     const jokes = getJokeFromLocalStorage();
@@ -49,6 +41,14 @@ function removeFavoriteJoke(jokeId) {
 
 function showFavoriteJokes() {
     favoriteJokesList.innerHTML = '';
+    if (favoriteJokes.length === 0) {
+        const noFavoritesItem = document.createElement('li');
+        noFavoritesItem.className = 'joke-app__no-favorites';
+        noFavoritesItem.textContent = 'Keine Witze gespeichert.'; 
+        favoriteJokesList.appendChild(noFavoritesItem);
+        return;
+    }
+
     favoriteJokes.forEach(joke => {
         const listItem = document.createElement('li');
         const disableFavorite = document.createElement('img');
@@ -63,6 +63,25 @@ function showFavoriteJokes() {
         });
         favoriteJokesList.appendChild(listItem);
     });
-
 }
+
+jokeButton.addEventListener('click', async () => {    
+    nextJoke();
+});
+
+favoriteButton.addEventListener('click', () => {
+    const currentJoke = { jokeId: new Date().getTime(), jokeText: jokeDisplay.textContent };
+    const isAlreadySaved = favoriteJokes.some(joke => joke.jokeText === currentJoke.jokeText);
+    
+    if (isAlreadySaved) {
+        alert("Witz ist bereits gespeichert!");
+        return;
+    }
+    
+    favoriteJokes.push(currentJoke);
+    saveJokes(favoriteJokes);
+    initJokes();
+
+});
+
 
