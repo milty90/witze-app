@@ -22,13 +22,13 @@ $disable-fav-color-darkmode: brightness(0) saturate(100%) invert(32%) sepia(96%)
 }
 
 @mixin table-and-desktop() {
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 800px) {
     @content;
   }
 }
 
-@mixin dark-mode {
-  @media (prefers-color-scheme: dark) {
+@mixin dark-mode-manual {
+  .dark & {
     @content;
   }
 }

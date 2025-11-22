@@ -17,7 +17,6 @@ async function fetchJokeCategories() {
   const url = `https://witzapi.de/api/category`;
   const response = await fetch(url);
   const jokes = await response.json();
-  console.log("jokes: ", jokes);
   return jokes;
 }
 

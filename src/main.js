@@ -8,10 +8,13 @@ import {
   getJokeFromLocalStorage,
   saveCategoryToLocalStorage,
   getCategoryFromLocalStorage,
+  saveSettingsToLocalStorage,
+  getSettingsFromLocalStorage,
 } from "./localStore.js";
 
 let favoriteJokes = [];
 let categories = [];
+let categoryToggles = [];
 
 const jokeButton = document.getElementById("jokeButton");
 const jokeDisplay = document.getElementById("jokeDisplay");
@@ -21,10 +24,11 @@ const modal = document.getElementById("setting");
 const closeModalButton = document.getElementById("closeModalButton");
 const openModalButton = document.getElementById("openModalButton");
 const categoryContainer = document.getElementById("categoryContainer");
-let categoryToggles = [];
+const darkModeToggle = document.getElementById("darkMode");
 
 nextJoke();
 initJokes();
+applySavedSettings();
 
 async function nextJoke() {
   categories = JSON.parse(getCategoryFromLocalStorage()) || [];
@@ -95,12 +99,22 @@ function showFavoriteJokes() {
   });
 }
 
+function applySavedSettings() {
+  const settings = getSettingsFromLocalStorage();
+  if (settings && settings.darkMode) {
+    document.documentElement.classList.add("dark");
+    darkModeToggle.checked = true;
+  } else {
+    document.documentElement.classList.remove("dark");
+    darkModeToggle.checked = false;
+  }
+}
+
 function renderCategoryToggles() {
   const savedCategories = JSON.parse(getCategoryFromLocalStorage()) || [];
   categoryToggles.forEach((toggle) => {
     const categoryName =
       toggle.parentElement.previousElementSibling.textContent;
-    console.log("categoryName: ", categoryName);
     if (savedCategories.includes(categoryName)) {
       toggle.checked = true;
     } else {
@@ -111,6 +125,7 @@ function renderCategoryToggles() {
 
 async function rendercategories() {
   let categoryElemens = (await fetchJokeCategories()) || [];
+  categoryToggles = [];
   categoryContainer.innerHTML = "";
 
   categoryElemens.forEach((category) => {
@@ -174,6 +189,7 @@ favoriteButton.addEventListener("click", () => {
     jokeId: new Date().getTime(),
     jokeText: jokeDisplay.textContent,
   };
+
   const isAlreadySaved = favoriteJokes.some(
     (joke) => joke.jokeText === currentJoke.jokeText
   );
@@ -187,3 +203,26 @@ favoriteButton.addEventListener("click", () => {
   saveJokes(favoriteJokes);
   initJokes();
 });
+
+darkModeToggle.addEventListener("change", () => {
+  if (darkModeToggle.checked) {
+    document.documentElement.classList.add("dark");
+    saveSettingsToLocalStorage({ darkMode: true });
+  } else {
+    document.documentElement.classList.remove("dark");
+    saveSettingsToLocalStorage({ darkMode: false });
+  }
+});
+
+// Opcionális: Automatikus dark mode detektálás page load-kor
+if (
+  window.matchMedia &&
+  window.matchMedia("(prefers-color-scheme: dark)").matches
+) {
+  // Ha nincs mentett beállítás, használd a rendszer beállítást
+  const savedSettings = getSettingsFromLocalStorage();
+  if (!savedSettings || savedSettings.darkMode === undefined) {
+    document.documentElement.classList.add("dark");
+    darkModeToggle.checked = true;
+  }
+}

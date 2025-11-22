@@ -19,7 +19,7 @@ html {
     padding: $spacing-base;
   }
 
-  @include dark-mode {
+  @include dark-mode-manual {
     background-color: $background-darkmode-color;
     color: $text-color;
   }
@@ -43,7 +43,7 @@ html {
       font-size: 4rem;
     }
 
-    @include dark-mode {
+    @include dark-mode-manual {
       color: lighten($primary-darkmode-color, 5%);
     }
   }
@@ -88,7 +88,7 @@ html {
       order: 2;
     }
 
-    @include dark-mode {
+    @include dark-mode-manual {
       background: linear-gradient(
         to bottom,
         lighten($primary-darkmode-color, 10%),
@@ -145,7 +145,7 @@ html {
       font-size: 2rem;
     }
 
-    @include dark-mode {
+    @include dark-mode-manual {
       background-image: linear-gradient(
         145deg,
         $primary-darkmode-color,
@@ -171,7 +171,7 @@ html {
     filter: $disable-fav-color;
     transform: scale(1.5);
 
-    @include dark-mode {
+    @include dark-mode-manual {
       filter: $disable-fav-color-darkmode;
     }
   }
@@ -185,7 +185,7 @@ html {
       $primary-color
     );
 
-    @include dark-mode {
+    @include dark-mode-manual {
       background-image: linear-gradient(
         145deg,
         $background-darkmode-color,
@@ -210,7 +210,7 @@ html {
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.6);
     transition: border-radius 0.2s, padding-top 0.2s;
 
-    @include dark-mode {
+    @include dark-mode-manual {
       background-image: linear-gradient(
         145deg,
         $background-darkmode-color,
@@ -231,7 +231,8 @@ html {
     box-shadow: 0 0px 1px 0 rgba(255, 255, 255, 0.75),
       inset 0 1px 1px rgba(0, 0, 0, 0.25);
     transition: border-radius 0.2s, padding-top 0.2s;
-    @include dark-mode {
+
+    @include dark-mode-manual {
       background-color: rgba(200, 200, 200, 0.1);
       box-shadow: 0 0px 2px 0 rgba(200, 200, 200, 0.75),
         inset 0 1px 1px rgba(0, 0, 0, 0.25);
@@ -268,7 +269,7 @@ html {
     transform: rotate(90deg);
     color: $primary-color;
 
-    @include dark-mode {
+    @include dark-mode-manual {
       color: lighten($primary-darkmode-color, 5%);
     }
   }
@@ -288,7 +289,7 @@ html {
       margin-top: $spacing-base + 2rem;
     }
 
-    @include dark-mode {
+    @include dark-mode-manual {
       color: lighten($background-darkmode-color, 5%);
     }
   }
@@ -305,6 +306,7 @@ html {
   }
 
   &__list {
+    justify-items: center;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -323,6 +325,10 @@ html {
 
     @include table-and-desktop() {
       font-size: $spacing-small + 0.3rem;
+    }
+
+    @include dark-mode-manual {
+      color: lighten($text-color, 20%);
     }
   }
 
@@ -344,7 +350,7 @@ html {
       rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     min-height: 80px;
     height: fit-content;
-    width: 250px;
+    width: 90%;
     max-width: 100%;
     gap: $spacing-small;
     order: 1;
@@ -359,7 +365,7 @@ html {
       flex-basis: 100%;
     }
 
-    @include dark-mode {
+    @include dark-mode-manual {
       background: linear-gradient(
         to bottom,
         lighten($background-darkmode-color, 10%),
@@ -414,7 +420,8 @@ html {
       width: 400px;
       max-width: 100%;
     }
-    @include dark-mode {
+
+    @include dark-mode-manual {
       background: linear-gradient(
         to bottom,
         lighten($background-darkmode-color, 0%),
@@ -437,7 +444,7 @@ html {
       0 -2px 0 $text-shadow-color, 0 2px 0 $text-shadow-color;
     border-bottom: 1px solid #eee;
 
-    @include dark-mode {
+    @include dark-mode-manual {
       color: lighten($background-darkmode-color, 5%);
     }
   }
@@ -461,7 +468,7 @@ html {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 
-    @include dark-mode {
+    @include dark-mode-manual {
       color: lighten($primary-darkmode-color, 5%);
     }
   }
@@ -470,7 +477,7 @@ html {
     color: $primary-color;
     transform: scale(1.3);
 
-    @include dark-mode {
+    @include dark-mode-manual {
       color: lighten($primary-darkmode-color, 5%);
     }
   }
@@ -491,7 +498,7 @@ html {
     font-size: 1.2rem;
     color: lightcyan;
 
-    @include dark-mode {
+    @include dark-mode-manual {
       color: lighten($text-color, 20%);
     }
   }
@@ -513,7 +520,7 @@ html {
     box-shadow: rgba(255, 255, 255, 0.25) 0px 30px 60px -12px inset,
       rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 
-    @include dark-mode {
+    @include dark-mode-manual {
       background-color: lighten($text-color, 10%);
     }
   }
@@ -534,7 +541,7 @@ html {
       rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
       rgba(0, 0, 0, 0.09) 0px 32px 16px;
 
-    @include dark-mode {
+    @include dark-mode-manual {
       background-color: $background-darkmode-color;
     }
   }
@@ -545,7 +552,7 @@ html {
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
       rgba(0, 0, 0, 0.22) 0px 15px 12px;
 
-    @include dark-mode {
+    @include dark-mode-manual {
       background-color: $primary-darkmode-color;
     }
   }
