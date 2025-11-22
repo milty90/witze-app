@@ -1,23 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Luckiest+Guy&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Luckiest+Guy&display=swap");
 
 $primary-color: #6b11cb;
 $background-color: #2575fc;
-$text-shadow-color: #f2f2f2; 
+$primary-darkmode-color: #9d1d1d;
+$background-darkmode-color: #1e1e1e;
+$text-shadow-color: #f2f2f2;
 $text-color: #ffffff;
-$font-primary: 'Fredoka', sans-serif;
-$font-heading: 'Luckiest Guy', cursive;
+$font-primary: "Fredoka", sans-serif;
+$font-heading: "Luckiest Guy", cursive;
 $spacing-small: 1rem;
 $spacing-base: 2rem;
-$disable-fav-color: brightness(0) saturate(100%) invert(27%) sepia(98%) saturate(3066%) hue-rotate(259deg) brightness(89%) contrast(107%);
+$disable-fav-color: brightness(0) saturate(100%) invert(27%) sepia(98%)
+  saturate(3066%) hue-rotate(259deg) brightness(89%) contrast(107%);
+$disable-fav-color-darkmode: brightness(0) saturate(100%) invert(32%) sepia(96%)
+  saturate(2891%) hue-rotate(344deg) brightness(103%) contrast(96%);
 
 @mixin flex-center {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-@mixin table-and-desktop () {
+@mixin table-and-desktop() {
   @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin dark-mode {
+  @media (prefers-color-scheme: dark) {
     @content;
   }
 }

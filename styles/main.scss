@@ -19,6 +19,11 @@ html {
     padding: $spacing-base;
   }
 
+  @include dark-mode {
+    background-color: $background-darkmode-color;
+    color: $text-color;
+  }
+
   &__header {
     font-family: $font-heading;
     font-size: 2.5rem;
@@ -37,6 +42,10 @@ html {
     @include table-and-desktop() {
       font-size: 4rem;
     }
+
+    @include dark-mode {
+      color: lighten($primary-darkmode-color, 5%);
+    }
   }
 
   &__container {
@@ -48,6 +57,7 @@ html {
 
     @include table-and-desktop() {
       flex-wrap: nowrap;
+      min-height: 30vh;
     }
   }
 
@@ -76,6 +86,15 @@ html {
       width: 500px;
       max-width: 100%;
       order: 2;
+    }
+
+    @include dark-mode {
+      background: linear-gradient(
+        to bottom,
+        lighten($primary-darkmode-color, 10%),
+        $primary-darkmode-color
+      );
+      color: $text-color;
     }
   }
 
@@ -125,6 +144,15 @@ html {
     @include table-and-desktop() {
       font-size: 2rem;
     }
+
+    @include dark-mode {
+      background-image: linear-gradient(
+        145deg,
+        $primary-darkmode-color,
+        lighten($background-darkmode-color, 5%) 100%
+      );
+      color: $text-color;
+    }
   }
 
   &__button-icon {
@@ -142,6 +170,10 @@ html {
     cursor: pointer;
     filter: $disable-fav-color;
     transform: scale(1.5);
+
+    @include dark-mode {
+      filter: $disable-fav-color-darkmode;
+    }
   }
 
   &__button:active &__button-top {
@@ -152,6 +184,14 @@ html {
       $background-color,
       $primary-color
     );
+
+    @include dark-mode {
+      background-image: linear-gradient(
+        145deg,
+        $background-darkmode-color,
+        $primary-darkmode-color
+      );
+    }
   }
 
   &__button-bottom {
@@ -169,6 +209,14 @@ html {
     );
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.6);
     transition: border-radius 0.2s, padding-top 0.2s;
+
+    @include dark-mode {
+      background-image: linear-gradient(
+        145deg,
+        $background-darkmode-color,
+        $primary-darkmode-color
+      );
+    }
   }
 
   &__button-base {
@@ -183,6 +231,11 @@ html {
     box-shadow: 0 0px 1px 0 rgba(255, 255, 255, 0.75),
       inset 0 1px 1px rgba(0, 0, 0, 0.25);
     transition: border-radius 0.2s, padding-top 0.2s;
+    @include dark-mode {
+      background-color: rgba(200, 200, 200, 0.1);
+      box-shadow: 0 0px 2px 0 rgba(200, 200, 200, 0.75),
+        inset 0 1px 1px rgba(0, 0, 0, 0.25);
+    }
   }
 
   &__button:active &__button-bottom {
@@ -214,6 +267,10 @@ html {
   &__button-icon-settings:hover {
     transform: rotate(90deg);
     color: $primary-color;
+
+    @include dark-mode {
+      color: lighten($primary-darkmode-color, 5%);
+    }
   }
 
   &__fav-header {
@@ -229,6 +286,10 @@ html {
     @include table-and-desktop() {
       font-size: 2rem;
       margin-top: $spacing-base + 2rem;
+    }
+
+    @include dark-mode {
+      color: lighten($background-darkmode-color, 5%);
     }
   }
 
@@ -297,6 +358,15 @@ html {
       gap: $spacing-base;
       flex-basis: 100%;
     }
+
+    @include dark-mode {
+      background: linear-gradient(
+        to bottom,
+        lighten($background-darkmode-color, 10%),
+        $background-darkmode-color
+      );
+      color: $text-color;
+    }
   }
 
   &__button-icon:hover {
@@ -329,12 +399,12 @@ html {
     );
     font-size: 1.4rem;
     border-radius: 25px;
-    padding: 20px 40px;
+    padding: 15px 15px;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
       rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
       rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     height: fit-content;
-    width: 300px;
+    width: 350px;
     max-width: 100%;
     animation: modalSlideIn 0.3s ease-out;
 
@@ -343,6 +413,14 @@ html {
       height: fit-content;
       width: 400px;
       max-width: 100%;
+    }
+    @include dark-mode {
+      background: linear-gradient(
+        to bottom,
+        lighten($background-darkmode-color, 0%),
+        $background-darkmode-color
+      );
+      color: $text-color;
     }
   }
 
@@ -358,6 +436,10 @@ html {
       -2px 0 0 $text-shadow-color, 2px 0 0 $text-shadow-color,
       0 -2px 0 $text-shadow-color, 0 2px 0 $text-shadow-color;
     border-bottom: 1px solid #eee;
+
+    @include dark-mode {
+      color: lighten($background-darkmode-color, 5%);
+    }
   }
 
   &__modal-title {
@@ -378,11 +460,19 @@ html {
     color: lighten($primary-color, 10%);
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+
+    @include dark-mode {
+      color: lighten($primary-darkmode-color, 5%);
+    }
   }
 
   &__modal-close:hover {
     color: $primary-color;
     transform: scale(1.3);
+
+    @include dark-mode {
+      color: lighten($primary-darkmode-color, 5%);
+    }
   }
 
   &__modal-body {
@@ -395,12 +485,15 @@ html {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 0.8rem;
   }
 
   &__setting-label {
     font-size: 1.2rem;
     color: lightcyan;
+
+    @include dark-mode {
+      color: lighten($text-color, 20%);
+    }
   }
 
   &__switch {
@@ -419,6 +512,10 @@ html {
     cursor: pointer;
     box-shadow: rgba(255, 255, 255, 0.25) 0px 30px 60px -12px inset,
       rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+    @include dark-mode {
+      background-color: lighten($text-color, 10%);
+    }
   }
 
   &__setting-toggle::before {
@@ -436,6 +533,10 @@ html {
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
       rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
       rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+    @include dark-mode {
+      background-color: $background-darkmode-color;
+    }
   }
 
   &__setting-toggle:checked::before {
@@ -443,6 +544,10 @@ html {
     left: calc(100% - (1.2rem / 2 + 0.2rem));
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
       rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+    @include dark-mode {
+      background-color: $primary-darkmode-color;
+    }
   }
 
   @keyframes modalSlideIn {
