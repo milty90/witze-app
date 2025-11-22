@@ -284,8 +284,7 @@ body, html {
 }
 
 &__modal {
-  
-  display: flex;
+  display: none;
   position: fixed;
   z-index: 1000;
   justify-content: center;
@@ -337,6 +336,7 @@ body, html {
     0 2px 0 $text-shadow-color; 
   border-bottom: 1px solid #eee;
 }
+
 &__modal_header h2 {
   margin: 0;
   font-size: 1.7rem;
@@ -437,7 +437,6 @@ rgba(0, 0, 0, 0.22) 0px 15px 12px;
     opacity: 1;
   }
 }
-
 }
 
 

@@ -9,12 +9,9 @@
   </head>
   <body>
     <div class="joke-app">
-      <img class="joke-app__button-icon-settings" src="/settings.svg" alt="Settings">
+      <img id="openModalButton" class="joke-app__button-icon-settings" src="/settings.svg" alt="Settings">
     <div class="joke-app">
-      <h1 class="joke-app__header">
-        <!-- Witze App -->
-         Schulwitze Witze
-      </h1>
+      <h1 class="joke-app__header">Witze App</h1>
       <div class="joke-app__container">
   <button id="favoriteButton" class="joke-app__button">
     <div class=" joke-app__button-top">
@@ -45,71 +42,21 @@
 <div class="joke-app__modal_content">
 <div class="joke-app__modal_header">  
   <h2>Einstellungen</h2>
-  <button class="joke-app__modal-close">&times;</button>
+  <button id="closeModalButton" class="joke-app__modal-close">&times;</button>
   </div>
   <div class="joke-app__modal_body">
     <div class="joke-app__setting-item">
       <div class="joke-app__setting-info">
         <label class="joke-app__setting-label" for="darkModeToggle">Dunkelmodus</label>
-</div><label class="joke-app__switch"><input type="checkbox" checked=""></label>
+</div><label id="darkMode" class="joke-app__switch"><input type="checkbox"></label>
 </div>
 </div>
 <div class="joke-app__modal_header">  
   <h3>Kategorien</h3>
   </div>
-  <div class="joke-app__modal_body">
-    <div class="joke-app__setting-item">
-      <div class="joke-app__setting-info">
-        <label class="joke-app__setting-label" for="darkModeToggle">flachwitze</label>
-</div><label class="joke-app__switch"><input type="checkbox" checked=""></label>
+  <div id="categoryContainer" class="joke-app__modal_body">
+    <!-- Kategorien werden hier dynamisch hinzugefügt -->
 </div>
-<div class="joke-app__setting-item">
-      <div class="joke-app__setting-info">
-        <label class="joke-app__setting-label" for="darkModeToggle">lehrerwitze</label>
-</div><label class="joke-app__switch"><input type="checkbox" checked=""></label>
-</div>
-<div class="joke-app__setting-item">
-      <div class="joke-app__setting-info">
-        <label class="joke-app__setting-label" for="darkModeToggle">programmierwitze</label>
-</div><label class="joke-app__switch"><input type="checkbox" checked=""></label>
-</div>
-<div class="joke-app__setting-item">
-      <div class="joke-app__setting-info">
-        <label class="joke-app__setting-label" for="darkModeToggle">chuck-norris-witze</label>
-</div><label class="joke-app__switch"><input type="checkbox" checked=""></label>
-</div>
-
-<div class="joke-app__setting-item">
-      <div class="joke-app__setting-info">
-        <label class="joke-app__setting-label" for="darkModeToggle">antiwitze</label>
-</div><label class="joke-app__switch"><input type="checkbox" checked=""></label>
-</div>
-
-<div class="joke-app__setting-item">
-      <div class="joke-app__setting-info">
-        <label class="joke-app__setting-label" for="darkModeToggle">blondinenwitze</label>
-</div><label class="joke-app__switch"><input type="checkbox" checked=""></label>
-</div>
-
-<div class="joke-app__setting-item">
-      <div class="joke-app__setting-info">
-        <label class="joke-app__setting-label" for="darkModeToggle">schulwitze</label>
-</div><label class="joke-app__switch"><input type="checkbox" checked=""></label>
-</div>
-
-<div class="joke-app__setting-item">
-      <div class="joke-app__setting-info">
-        <label class="joke-app__setting-label" for="darkModeToggle">ddr-witze</label>
-</div><label class="joke-app__switch"><input type="checkbox" checked=""></label>
-</div>
-
-<div class="joke-app__setting-item">
-      <div class="joke-app__setting-info">
-        <label class="joke-app__setting-label" for="categoryToggle">arztwitze</label>
-</div><label class="joke-app__switch"><input type="checkbox" checked=""></label>
-</div>
-
-
 </div>
 </div>
     <script type="module" src="/src/main.js"></script>
